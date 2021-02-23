@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('articles', 'api\ArticlesController@index');
+Route::get('categories', 'api\CategoriesController@index');
+Route::get('tags', 'api\TagsController@index');
