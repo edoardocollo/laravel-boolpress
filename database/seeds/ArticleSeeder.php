@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Faker\Generator as Faker;
+use App\Article;
 class ArticleSeeder extends Seeder
 {
     /**
@@ -9,8 +10,14 @@ class ArticleSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+        for ($i=0; $i < 10; $i++) {
+          $newArticle = new Article;
+          $newArticle->titolo = $faker->sentence(3);
+          $newArticle->autore = $faker->name();
+          $newArticle->contenuto = $faker->paragraph(4);
+          $newArticle->save();
+        }
     }
 }
