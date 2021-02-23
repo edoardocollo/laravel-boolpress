@@ -5,3 +5,6 @@
 @section('titolo')
   home
 @endsection
+@section('main_content')
+  @include('layout.nav')
+@endsection

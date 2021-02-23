@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-
+  public function spa(){
+    return view('spa.main');
+  }
 }
