@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Tag;
-
 class TagSeeder extends Seeder
 {
     /**
@@ -13,11 +12,11 @@ class TagSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-      for ($i=0; $i < 10; $i++) {
-        $newTag = new Tag;
-        $newTag->tag = $faker->words();
-        $newTag->descrizione = $faker->sentence();
-        $newTag->save();
-      }
+        for ($i=0; $i < 10; $i++) {
+          $newTag = new Tag;
+          $newTag->tag = $faker->word();
+          $newTag->descrizione = $faker->sentence();
+          $newTag->save();
+        }
     }
 }

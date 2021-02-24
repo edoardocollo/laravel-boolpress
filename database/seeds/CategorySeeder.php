@@ -12,11 +12,11 @@ class CategorySeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-      for ($i=0; $i < 10; $i++) {
-        $newCategory = new Category;
-        $newCategory->categoria = $faker->words();
-        $newCategory->descrizione = $faker->sentence(5);
-        $newCategory->save();
-      }
+        for ($i=0; $i < 10; $i++) {
+          $newCategory = new Category;
+          $newCategory->categoria = $faker->word();
+          $newCategory->descrizione = $faker->sentence();
+          $newCategory->save();
+        }
     }
 }
