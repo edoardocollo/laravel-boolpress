@@ -1,5 +1,5 @@
 <button class="btn btn-success" type="button" name="button">
-<a href="{{route('categorie.create')}}">aggiungi categoria</a>
+<a href="{{route('articoli.create')}}">aggiungi aricolo</a>
 </button>
 <table class="table table-striped">
 <thead>

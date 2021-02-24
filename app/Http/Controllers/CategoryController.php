@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categorie.create');
     }
 
     /**
@@ -36,8 +36,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( $request)
+    public function store(Request $request)
     {
+      $newCategory = new Category;
+      $newCategory->categoria = $request->categoria;
+      $newCategory->descrizione = $request->descrizione;
+      $newCategory->save();
+      return redirect()->route('categorie.index');
 
     }
 
@@ -94,6 +99,9 @@ class CategoryController extends Controller
      */
     public function destroy($category)
     {
+      $categorytarget = Category::find($category);
+      $categorytarget->delete();
+      return redirect()->route('categorie.index');
 
     }
 }

@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::get('spa', 'PagesController@spa')->name('spa');
 Route::resource('articoli', 'ArticleController');
 Route::resource('categorie', 'CategoryController');
+Route::resource('tags', 'TagController');

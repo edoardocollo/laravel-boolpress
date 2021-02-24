@@ -1,13 +1,13 @@
 @extends('layout.layout')
 @section('titolo_head')
-  create_categorie crud
+  create_tags crud
 @endsection
 @section('titolo')
-  create_categorie crud
+  create_tags crud
 @endsection
 @section('main_content')
   @include('layout.nav')
-  @include('categorie.partials.create_form')
+  @include('tags.partials.create_form')
 @endsection
 @section('scripts')
 @endsection

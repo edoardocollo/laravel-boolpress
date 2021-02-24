@@ -1,16 +1,12 @@
-<form action="{{route('articoli.store')}}" method="post">
+<form action="{{route('categorie.store')}}" method="post">
   @csrf
  <div class="form-group">
-   <label for="titolo">titolo:</label>
-   <input type="text" class="form-control" id="titolo" name="titolo">
+   <label for="categoria">categoria:</label>
+   <input type="text" class="form-control" id="categoria" name="categoria">
  </div>
  <div class="form-group">
-   <label for="contenuto">contenuto:</label>
-   <input type="text" class="form-control" id="contenuto" name="contenuto">
- </div>
- <div class="form-group">
-   <label for="autore">autore:</label>
-   <input type="text" class="form-control" id="autore" name="autore">
+   <label for="descrizione">descrizione:</label>
+   <input type="text" class="form-control" id="descrizione" name="descrizione">
  </div>
 
  <button type="submit" class="btn btn-success">Submit</button>

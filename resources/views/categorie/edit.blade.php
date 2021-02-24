@@ -1,9 +1,9 @@
 @extends('layout.layout')
 @section('titolo_head')
-  edit_articoli crud
+  edit_categorie crud
 @endsection
 @section('titolo')
-  edit_articoli crud
+  edit_categorie crud
 @endsection
 @section('main_content')
   @include('layout.nav')
