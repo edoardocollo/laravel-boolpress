@@ -1,13 +1,13 @@
 @extends('layout.layout')
 @section('titolo_head')
-  articoli crud
+  creazione_articoli crud
 @endsection
 @section('titolo')
-  articoli crud
+  creazione_articoli crud
 @endsection
 @section('main_content')
   @include('layout.nav')
-  @include('articoli.partials.print_articles')
+  @include('articoli.partials.create_form')
 @endsection
 @section('scripts')
 @endsection
