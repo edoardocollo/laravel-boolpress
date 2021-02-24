@@ -53,9 +53,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show( $article)
     {
-        //
+      $articletarget = Article::find($article);
+
+      return view('articoli.show', compact('articletarget'));
     }
 
     /**
@@ -87,8 +89,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($article)
     {
-        //
+      $articletarget = Article::find($article);
+      $articletarget->delete();
+      return redirect()->route('articoli.index');
+
     }
 }
