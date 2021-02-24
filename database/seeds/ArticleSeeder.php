@@ -17,6 +17,7 @@ class ArticleSeeder extends Seeder
           $newArticle->titolo = $faker->sentence(3);
           $newArticle->autore = $faker->name();
           $newArticle->contenuto = $faker->paragraph(4);
+          $newArticle->category_id = 1;
           $newArticle->save();
         }
     }
