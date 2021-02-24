@@ -14,7 +14,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        dd('ciao');
+      $tags = Tag::all();
+
+      return view('tags.index', compact('tags'));
+
     }
 
     /**
@@ -24,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tags.create');
     }
 
     /**
@@ -35,7 +38,12 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $newTag = new Tag;
+      $newTag->tag = $request->tag;
+      $newTag->descrizione = $request->descrizione;
+      $newTag->save();
+      return redirect()->route('tags.index');
+
     }
 
     /**
@@ -44,9 +52,12 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show( $tag)
     {
-        //
+      $tagtarget = Tag::find($tag);
+
+      return view('tags.show', compact('tagtarget'));
+
     }
 
     /**
@@ -55,9 +66,12 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit($tag)
     {
-        //
+      $tagtarget = Tag::find($tag);
+
+      return view('tags.edit', compact('tagtarget'));
+
     }
 
     /**
@@ -67,9 +81,14 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request,  $tag)
     {
-        //
+      $tagtarget = Tag::find($tag);
+      $tagtarget->tag = $request->tag;
+      $tagtarget->descrizione = $request->descrizione;
+      $tagtarget->update();
+      return redirect()->route('tags.index');
+
     }
 
     /**
@@ -78,8 +97,12 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy( $tag)
     {
-        //
+      $tagtarget = Tag::find($tag);
+      $tagtarget->delete();
+      return redirect()->route('tags.index');
+
+
     }
 }

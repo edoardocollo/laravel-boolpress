@@ -1,34 +1,34 @@
 <button class="btn btn-success" type="button" name="button">
-<a href="{{route('articoli.create')}}">aggiungi aricolo</a>
+<a href="{{route('tags.create')}}">aggiungi tag</a>
 </button>
 <table class="table table-striped">
 <thead>
 <tr>
-  <th>categoria</th>
+  <th>tag</th>
   <th>descrizione</th>
   <th>id</th>
 </tr>
 </thead>
 <tbody>
-@foreach ($categories as $category)
+@foreach ($tags as $tag)
 
   <tr>
-    <td>{{$category->categoria}}</td>
-    <td>{{$category->descrizione}}</td>
-    <td>{{$category->id}}</td>
+    <td>{{$tag->tag}}</td>
+    <td>{{$tag->descrizione}}</td>
+    <td>{{$tag->id}}</td>
 
 
     <td>
-      <form action="{{route('categorie.destroy', $category->id)}}" method="post">
+      <form action="{{route('tags.destroy', $tag->id)}}" method="post">
         @csrf
         @method('delete')
        <button type="submit" class="btn btn-success">delete</button>
       </form>
-      <form action="{{route('categorie.edit', $category)}}" method="get">
+      <form action="{{route('tags.edit', $tag)}}" method="get">
         @csrf
        <button type="submit" class="btn btn-success">edit</button>
       </form>
-      <form action="{{route('categorie.show', $category->id)}}" method="get">
+      <form action="{{route('tags.show', $tag->id)}}" method="get">
         @csrf
        <button type="submit" class="btn btn-success">show</button>
       </form>
