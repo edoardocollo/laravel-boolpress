@@ -12,12 +12,12 @@ class ArticleSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 30; $i++) {
           $newArticle = new Article;
           $newArticle->titolo = $faker->sentence(3);
           $newArticle->autore = $faker->name();
           $newArticle->contenuto = $faker->paragraph(4);
-          $newArticle->category_id = 1;
+          $newArticle->category_id = $faker->randomDigitNotNull();
           $newArticle->save();
         }
     }

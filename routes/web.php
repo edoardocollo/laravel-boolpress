@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('spa', 'PagesController@spa')->name('spa');
+Route::resource('articoli', 'ArticleController');
