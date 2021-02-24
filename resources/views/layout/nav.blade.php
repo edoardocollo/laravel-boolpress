@@ -4,3 +4,4 @@
 <a href="/api/tags">api tag</a>
 <a href="/spa">spa</a>
 <a href="/articoli">articoli</a>
+<a href="/categorie">categorie</a>
