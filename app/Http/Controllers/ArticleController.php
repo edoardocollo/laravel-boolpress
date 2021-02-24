@@ -66,9 +66,12 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit( $article)
     {
-        //
+      $articletarget = Article::find($article);
+
+      return view('articoli.edit', compact('articletarget'));
+
     }
 
     /**
@@ -78,9 +81,15 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $article)
     {
-        //
+      $articletarget = Article::find($article);
+      $articletarget->titolo = $request->titolo;
+      $articletarget->contenuto = $request->contenuto;
+      $articletarget->autore = $request->autore;
+      $articletarget->update();
+      return redirect()->route('articoli.index');
+
     }
 
     /**
