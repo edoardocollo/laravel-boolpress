@@ -7,7 +7,7 @@
 @endsection
 @section('main_content')
   @if (Route::has('login'))
-    <div class="top-right links">
+    <div >
         @auth
         <a href="{{ url('/home') }}">Home</a>
         <a href="{{ url('/logout') }}">logout</a>
@@ -22,5 +22,8 @@
   @endif
 
   @include('layout.nav')
+  <div id="fabius-bile">
+    <img src="http://www.coolminiornot.com/pics/pics16/img5f00d85302b81.jpg" alt="">
+  </div>
   @include('layout.api_nav')
 @endsection
