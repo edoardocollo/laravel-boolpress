@@ -20,3 +20,8 @@ Route::get('spa', 'PagesController@spa')->name('spa');
 Route::resource('articoli', 'ArticleController');
 Route::resource('categorie', 'CategoryController');
 Route::resource('tags', 'TagController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout');
