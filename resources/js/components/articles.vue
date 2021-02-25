@@ -9,7 +9,7 @@
                         <p>{{article.contenuto}}</p>
 
                     </div>
-                    <div class="card-footer">{{article.autore}}</div>
+                    <div class="card-footer">autore: {{article.autore}} / categoria: {{categories[article.category_id].categoria}}</div>
                 </div>
             </div>
         </div>
@@ -20,16 +20,21 @@
     export default {
         data(){
           return {
-          articles:""
+          articles:"",
+          categories:""
           }
         },
         mounted() {
         axios.get('api/articles').then(response => {
-              console.log(response.data.response);
               this.articles = response.data.response;
           }).catch(error => {
               console.log(error);
           })
+          axios.get('api/categories').then(response => {
+                this.categories = response.data.response;
+            }).catch(error => {
+                console.log(error);
+            })
         }
     }
 </script>

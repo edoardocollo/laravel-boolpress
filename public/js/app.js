@@ -2009,15 +2009,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      articles: ""
+      articles: "",
+      categories: ""
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     axios.get('api/articles').then(function (response) {
-      console.log(response.data.response);
       _this.articles = response.data.response;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    axios.get('api/categories').then(function (response) {
+      _this.categories = response.data.response;
     })["catch"](function (error) {
       console.log(error);
     });
@@ -2063,7 +2068,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('api/categories').then(function (response) {
-      console.log(response.data.response);
       _this.categories = response.data.response;
     })["catch"](function (error) {
       console.log(error);
@@ -2110,7 +2114,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('api/tags').then(function (response) {
-      console.log(response.data.response);
       _this.tags = response.data.response;
     })["catch"](function (error) {
       console.log(error);
@@ -38578,7 +38581,12 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-footer" }, [
-              _vm._v(_vm._s(article.autore))
+              _vm._v(
+                "autore: " +
+                  _vm._s(article.autore) +
+                  " / categoria: " +
+                  _vm._s(_vm.categories[article.category_id].categoria)
+              )
             ])
           ])
         }),

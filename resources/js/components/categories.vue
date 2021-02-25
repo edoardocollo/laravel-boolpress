@@ -25,7 +25,6 @@
         },
         mounted() {
         axios.get('api/categories').then(response => {
-              console.log(response.data.response);
               this.categories = response.data.response;
           }).catch(error => {
               console.log(error);

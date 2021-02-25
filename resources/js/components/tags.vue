@@ -25,7 +25,6 @@
         },
         mounted() {
         axios.get('api/tags').then(response => {
-              console.log(response.data.response);
               this.tags = response.data.response;
           }).catch(error => {
               console.log(error);
