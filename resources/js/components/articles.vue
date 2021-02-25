@@ -9,7 +9,7 @@
                         <p>{{article.contenuto}}</p>
 
                     </div>
-                    <div class="card-footer">autore: {{article.autore}} / categoria: {{categories[article.category_id].categoria}}</div>
+                    <div class="card-footer">autore: {{article.autore}} / categoria: <span v-for="category in categories" v-if="category.id === article.category_id">{{category.categoria}}</span> </div>
                 </div>
             </div>
         </div>

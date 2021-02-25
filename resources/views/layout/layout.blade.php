@@ -7,10 +7,13 @@
   </head>
   <body>
     <h1>@yield('titolo')</h1>
-    @yield('main_content')
+    <div class="">
 
+      @yield('main_content')
+    </div>
 
     <footer>
+
       @yield('footer')
     </footer>
     @yield('scripts')

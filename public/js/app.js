@@ -38580,14 +38580,19 @@ var render = function() {
               _c("p", [_vm._v(_vm._s(article.contenuto))])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _vm._v(
-                "autore: " +
-                  _vm._s(article.autore) +
-                  " / categoria: " +
-                  _vm._s(_vm.categories[article.category_id].categoria)
-              )
-            ])
+            _c(
+              "div",
+              { staticClass: "card-footer" },
+              [
+                _vm._v("autore: " + _vm._s(article.autore) + " / categoria: "),
+                _vm._l(_vm.categories, function(category) {
+                  return category.id === article.category_id
+                    ? _c("span", [_vm._v(_vm._s(category.categoria))])
+                    : _vm._e()
+                })
+              ],
+              2
+            )
           ])
         }),
         0

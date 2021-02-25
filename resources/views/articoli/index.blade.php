@@ -6,8 +6,13 @@
   articoli crud
 @endsection
 @section('main_content')
-  @include('layout.nav')
-  @include('articoli.partials.print_articles')
+
+    @include('layout.nav')
+
+    @include('articoli.partials.print_articles')
+
+    @include('layout.api_nav')
+
 @endsection
 @section('scripts')
 @endsection

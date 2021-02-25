@@ -6,5 +6,6 @@
   home
 @endsection
 @section('main_content')
-  @include('layout.nav')
+@include('layout.nav')
+@include('layout.api_nav')
 @endsection
