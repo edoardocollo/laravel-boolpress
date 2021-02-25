@@ -6,6 +6,8 @@
                     <div class="card-header">{{article.titolo}}</div>
 
                     <div class="card-body">
+
+                        <img v-bind:src="article.img" alt="">
                         <p>{{article.contenuto}}</p>
 
                     </div>

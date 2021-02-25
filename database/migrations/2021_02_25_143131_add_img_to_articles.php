@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryIdToArticle extends Migration
+class AddImgToArticles extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class AddCategoryIdToArticle extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-          $table->unsignedBigInteger('category_id')->after('contenuto');
+          $table->string('img')->after('category_id');
 
-          $table->foreign('category_id')->references('id')->on('categories');
+
         });
     }
 
@@ -28,8 +28,7 @@ class AddCategoryIdToArticle extends Migration
     public function down()
     {
         Schema::table('articles', function (Blueprint $table) {
-          $table->dropForeign('articles_category_id_foreign');
-          $table->dropColumn('category_id');
+            $table->dropColumn('img');
         });
     }
 }
