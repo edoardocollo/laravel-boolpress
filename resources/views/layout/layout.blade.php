@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>@yield('titolo')</h1>
-    <div class="">
+    <div class="main_wrap">
 
       @yield('main_content')
     </div>

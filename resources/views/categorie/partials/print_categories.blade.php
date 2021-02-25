@@ -7,6 +7,7 @@
   <th>categoria</th>
   <th>descrizione</th>
   <th>id</th>
+  <th>action</th>
 </tr>
 </thead>
 <tbody>

@@ -8,7 +8,7 @@
 @section('main_content')
   @include('layout.nav')
   @include('tags.partials.print_tags')
-  @include('layout.nav')
+  @include('layout.api_nav')
 
 @endsection
 @section('scripts')

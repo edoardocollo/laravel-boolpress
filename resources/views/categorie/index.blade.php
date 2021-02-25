@@ -8,7 +8,7 @@
 @section('main_content')
   @include('layout.nav')
   @include('categorie.partials.print_categories')
-  @include('layout.nav')
+  @include('layout.api_nav')
 @endsection
 @section('scripts')
 @endsection
