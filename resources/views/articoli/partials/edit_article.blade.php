@@ -23,5 +23,16 @@
    </select>
  </div>
 
+ <div class="form-group">
+   <label for="tag">tag:</label>
+   <select class="" name="tags[]" multiple>
+
+    @foreach ($tags as $tag)
+     <option value="{{$tag->id}}">{{$tag->tag}}</option>
+    @endforeach
+   </select>
+ </div>
+
+
  <button type="submit" class="btn btn-success">Submit</button>
 </form>

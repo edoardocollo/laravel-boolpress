@@ -9,6 +9,7 @@
   <th>autore</th>
   <th>id</th>
   <th>categoria</th>
+  <th>tags</th>
   <th>action</th>
 </tr>
 </thead>
@@ -21,6 +22,11 @@
     <td>{{$article->autore}}</td>
     <td>{{$article->id}}</td>
     <td>{{$article->category->categoria}}</td>
+    <td>
+      @foreach($article->tags as $tag)
+        {{$tag->tag}}
+      @endforeach
+    </td>
 
 
     <td>

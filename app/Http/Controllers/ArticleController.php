@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -27,8 +28,9 @@ class ArticleController extends Controller
     public function create()
     {
       $categories = Category::all();
+      $tags = Tag::all();
 
-      return view('articoli.create', compact('categories'));
+      return view('articoli.create', compact('categories','tags'));
     }
 
     /**
@@ -39,6 +41,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+      // dd($request);
       $newArticle = new Article;
       $newArticle->titolo = $request->titolo;
       $newArticle->contenuto = $request->contenuto;
@@ -46,6 +49,8 @@ class ArticleController extends Controller
       $newArticle->category_id = $request->categoria;
       $newArticle->img = 'https://placeimg.com/640/480/tech'.rand(1,100);
       $newArticle->save();
+      $newArticle->tags()->attach($request->tags);
+
       return redirect()->route('articoli.index');
 
     }
@@ -73,7 +78,9 @@ class ArticleController extends Controller
     {
       $articletarget = Article::find($article);
       $categories = Category::all();
-      return view('articoli.edit', compact('articletarget','categories'));
+      $tags = Tag::all();
+
+      return view('articoli.edit', compact('articletarget','categories','tags'));
 
     }
 
@@ -94,6 +101,7 @@ class ArticleController extends Controller
       $articletarget->category_id = $request->categoria;
       $articletarget->img = 'https://placeimg.com/640/480/tech'.rand(1,100);
       $articletarget->update();
+      $articletarget->tags()->sync($request->tags);
       return redirect()->route('articoli.index');
 
     }
