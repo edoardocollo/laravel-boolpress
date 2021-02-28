@@ -22,8 +22,11 @@
   @endif
 
   @include('layout.nav')
-  <div id="fabius-bile">
-    <img src="http://www.coolminiornot.com/pics/pics16/img5f00d85302b81.jpg" alt="">
+  <div id="app">
+    <canvas id="c"></canvas>
   </div>
   @include('layout.api_nav')
+@endsection
+@section('scripts')
+  <script src="{{ asset('js/app.js') }}" charset="utf-8"></script>
 @endsection

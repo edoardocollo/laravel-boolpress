@@ -10981,3 +10981,9 @@ nav a {
   color: white;
 }
 
+#c {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
