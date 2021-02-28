@@ -41,7 +41,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-      // dd($request);
+
+      $request->validate([
+          'titolo' => 'required',
+          'autore' => 'required',
+          'contenuto' => 'required',
+          'category_id' =>'required | exist:categories,id',
+          'category_id' =>'required | exist:categories,id',
+          'tags' => 'exist:tags,id'
+      ]);
+
+
       $newArticle = new Article;
       $newArticle->titolo = $request->titolo;
       $newArticle->contenuto = $request->contenuto;
@@ -76,6 +86,9 @@ class ArticleController extends Controller
      */
     public function edit( $article)
     {
+
+
+
       $articletarget = Article::find($article);
       $categories = Category::all();
       $tags = Tag::all();
@@ -93,6 +106,16 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $article)
     {
+
+      $request->validate([
+          'titolo' => 'required',
+          'autore' => 'required',
+          'contenuto' => 'required',
+          'category_id' =>'required | exist:categories,id',
+          'category_id' =>'required | exist:categories,id',
+          'tags' => 'exist:tags,id'
+      ]);
+
 
       $articletarget = Article::find($article);
       $articletarget->titolo = $request->titolo;
