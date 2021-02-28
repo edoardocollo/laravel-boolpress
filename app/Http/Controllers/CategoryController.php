@@ -38,6 +38,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
+      $request->validate([
+          'categoria' => 'required',
+          'descrizione' => 'required',
+      ]);
+
+
       $newCategory = new Category;
       $newCategory->categoria = $request->categoria;
       $newCategory->descrizione = $request->descrizione;
@@ -83,6 +90,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request,  $category)
     {
+      $request->validate([
+          'categoria' => 'required',
+          'descrizione' => 'required',
+      ]);
+
+
       $categorytarget = Category::find($category);
       $categorytarget->categoria = $request->categoria;
       $categorytarget->descrizione = $request->descrizione;
