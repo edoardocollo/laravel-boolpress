@@ -103139,6 +103139,7 @@ var app = new Vue({
           } ////////////////////////////////////////////////////////////////////
 
 
+          scene.rotation.y = time / 5;
           renderer.render(scene, camera);
           requestAnimationFrame(render);
         }
