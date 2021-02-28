@@ -103086,6 +103086,18 @@ var app = new Vue({
             root.position.y = -0.37;
           });
         });
+        var mtlLoader2 = new three_examples_jsm_loaders_MTLLoader_js__WEBPACK_IMPORTED_MODULE_3__["MTLLoader"]();
+        mtlLoader2.load('seeds.mtl', function (mtl) {
+          mtl.preload();
+          var objLoader = new three_examples_jsm_loaders_OBJLoader_js__WEBPACK_IMPORTED_MODULE_2__["OBJLoader"]();
+          objLoader.setMaterials(mtl);
+          objLoader.load('seeds.obj', function (text) {
+            var testo = text;
+            testo.rotation.x = Math.PI / 2;
+            testo.position.y = 9;
+            scene.add(testo);
+          });
+        });
         console.log(self.articles.length);
         self.articles.forEach(function (e) {
           var mtlLoader = new three_examples_jsm_loaders_MTLLoader_js__WEBPACK_IMPORTED_MODULE_3__["MTLLoader"]();

@@ -96,6 +96,25 @@ const app = new Vue({
               });
 
 
+
+
+                const mtlLoader2 = new MTLLoader();
+                mtlLoader2.load('seeds.mtl', (mtl) => {
+                  mtl.preload();
+                  const objLoader = new OBJLoader();
+                  objLoader.setMaterials(mtl);
+                  objLoader.load('seeds.obj', (text) => {
+                    let testo = text;
+                    testo.rotation.x = Math.PI / 2;
+                    testo.position.y = 9;
+                    scene.add(testo);
+
+
+                  });
+                });
+
+
+
               console.log(self.articles.length);
               self.articles.forEach(e => {
                 const mtlLoader = new MTLLoader();
@@ -140,7 +159,6 @@ const app = new Vue({
                   camera.updateProjectionMatrix();
                 }
                 ////////////////////////////////////////////////////////////////////
-
 
 
 
