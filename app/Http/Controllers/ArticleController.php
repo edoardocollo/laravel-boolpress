@@ -46,9 +46,8 @@ class ArticleController extends Controller
           'titolo' => 'required',
           'autore' => 'required',
           'contenuto' => 'required',
-          'category_id' =>'required | exist:categories,id',
-          'category_id' =>'required | exist:categories,id',
-          'tags' => 'exist:tags,id'
+          'category_id' =>'exists:categories,id',
+          'tags' => 'exists:tags,id'
       ]);
 
 
@@ -58,6 +57,8 @@ class ArticleController extends Controller
       $newArticle->autore = $request->autore;
       $newArticle->category_id = $request->categoria;
       $newArticle->img = 'https://placeimg.com/640/480/tech'.rand(1,100);
+      $newArticle->x = rand(-9, 20);
+      $newArticle->y = rand(-9, 20);
       $newArticle->save();
       $newArticle->tags()->attach($request->tags);
 
